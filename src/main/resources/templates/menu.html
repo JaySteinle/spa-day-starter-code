@@ -6,10 +6,28 @@
     <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
 </head>
 <body>
-<h1>My Super Fancy Spa</h1>
-<div id = "clientProfile">
-</div>
-<div id = "servicesMenu">
-</div>
+    <h1>My Super Fancy Spa</h1>
+    <div id = "clientProfile">
+        <h2>My Profile</h2>
+        <p th:text= "${name}"></p>
+        <p th:text= "${skintype}"></p>
+        <p th:text= "${manipedi}"></p>
+    </div>
+
+    <div id = "servicesMenu">
+        <th:block>
+            <table class="table table-striped">
+                <tr th:each="appropriateFacial : ${appropriateFacials}">
+                    <td th:text="${appropriateFacial}"></td>
+                </tr>
+            </table>
+            <div>
+                <h3 th:text= "${manipedi}"></h3>
+                <p th:if="${manipedi} == pedicure">"${pedicureDescription}"
+                </p>
+            </div>
+
+        </th:block>
+    </div>
 </body>
 </html>
